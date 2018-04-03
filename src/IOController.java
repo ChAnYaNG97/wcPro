@@ -42,8 +42,38 @@ public class IOController {
         }
         return null;
     }
-
     
+    public void writeFile(HashMap<String, Integer> wordMap)
+    {
+        List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>(wordMap.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+
+        for(Map.Entry<String,Integer> element :list){
+            try
+            {
+                writer.append(element.getKey() + ' ' + element.getValue());
+                writer.append("\r\n");
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        try {
+            writer.close();
+            os.close();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
 
 
