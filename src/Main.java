@@ -14,24 +14,24 @@ public class Main {
 
 
         String keyStr;
-        String value;
-        Map newCountList = new HashMap();
+        int value;
+        HashMap<String, Integer> newCountList = new HashMap();
         //去掉单词横杠
         for(Object key : wc.countList.keySet())
         {
             keyStr = key.toString();
             if(keyStr.endsWith("-"))
             {
-                value = wc.countList.get(key).toString();
+                value = Integer.parseInt(wc.countList.get(key).toString());
                 keyStr = keyStr.replace("-", "");
                 newCountList.put(keyStr, value);
             }
             else
-                newCountList.put(key, wc.countList.get(key));
+                newCountList.put(keyStr, Integer.parseInt(wc.countList.get(key).toString()) );
         }
 
         System.out.println(newCountList.entrySet());
-//        controller.writeFile(newCountList);
+        controller.writeFile(newCountList);
 
     }
 }
