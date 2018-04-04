@@ -1,4 +1,3 @@
-package src;
 
 import java.io.*;
 import java.util.*;
@@ -51,7 +50,10 @@ public class IOController {
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
             @Override
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
+                if(o1.getValue().compareTo(o2.getValue()) == 0)
+                    return o1.getKey().compareTo(o2.getKey());
+                else
+                    return o2.getValue().compareTo(o1.getValue());
             }
         });
 

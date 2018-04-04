@@ -1,4 +1,3 @@
-package src;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +5,8 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args)
     {
+        long startTime = System.nanoTime();
+
         IOController controller = new IOController("case.txt");
         WordCounter wc = new WordCounter();
         String line;
@@ -15,6 +16,7 @@ public class Main {
 
         String keyStr;
         int value;
+
         HashMap<String, Integer> newCountList = new HashMap();
         //去掉单词横杠
         for(Object key : wc.countList.keySet())
@@ -29,9 +31,10 @@ public class Main {
             else
                 newCountList.put(keyStr, Integer.parseInt(wc.countList.get(key).toString()) );
         }
-
+        System.out.println(wc.countList.entrySet());
         System.out.println(newCountList.entrySet());
         controller.writeFile(newCountList);
+        System.out.println(System.nanoTime() - startTime);
 
     }
 }
