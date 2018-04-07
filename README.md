@@ -3,10 +3,10 @@
 ### Requires
 http://www.cnblogs.com/ningjing-zhiyuan/p/8654132.html
 ### Work Allocation
--[x] 输入部分 杨晨
+* \[X] 输入部分 杨晨
 
--[x] 输出部分 唐龙轩
+* \[X] 输出部分 唐龙轩
 
--[x] 词频统计 刘谦
+* \[X] 词频统计 刘谦
 
--[x] 主函数 石星
+* \[X] 主函数 石星
