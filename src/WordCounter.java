@@ -1,4 +1,3 @@
-package src;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,8 +10,9 @@ public class WordCounter
 
     void countWord(String input)
     {
+        input = input.toLowerCase();
         String word;
-        Pattern wordPattern = Pattern.compile("[a-zA-Z]+(-[a-zA-z]+)*-?");
+        Pattern wordPattern = Pattern.compile("[a-zA-Z]+(-[a-zA-Z]+)*-?");
         Matcher m = wordPattern.matcher(input);
 
         while(m.find())
