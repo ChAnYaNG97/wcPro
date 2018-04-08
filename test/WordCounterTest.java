@@ -106,5 +106,18 @@ public class WordCounterTest
         assertEquals(expected, wc.countList);
     }
 
+    //test9：带两个连字符的单词
+    @Test
+    public void testCountWord9()
+    {
+        wc.countWord("this is a--simple-test.");
+        expected.put("this",1);
+        expected.put("is",1);
+        expected.put("a",1);
+        expected.put("simple-test",1);
+        assertEquals(expected, wc.countList);
+    }
+
+
 
 }
