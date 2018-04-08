@@ -2,6 +2,13 @@
 import java.io.*;
 import java.util.*;
 
+
+/**
+ * IOController Class
+ *
+ * @author YangChen
+ * @date 2018/4/3
+ */
 public class IOController {
 
     private String filepath;
@@ -53,15 +60,19 @@ public class IOController {
                 return o2.getValue().compareTo(o1.getValue());
             }
         });
-
+        int count = 0;
         for(Map.Entry<String,Integer> element :list){
-            try
+            if(count < 100)
             {
-                writer.append(element.getKey() + ' ' + element.getValue());
-                writer.append("\r\n");
-            }catch (Exception e)
-            {
-                e.printStackTrace();
+                try
+                {
+                    writer.append(element.getKey() + ' ' + element.getValue());
+                    writer.append("\r\n");
+                    count++;
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
             }
         }
         try {
